@@ -64,7 +64,7 @@ export default function SearchPage({ user }) {
       <div className="flex items-center justify-between py-[2vw] px-[1vw]
       ">
 
-        <h3 className="text-xl font-semibold tracking-tight text-gray-800 mb-4">
+        <h3 className="text-xl font-semibold tracking-tight text-gray-800">
           Welcome, <span className="text-blue-600 userName">{user.displayName}</span>
         </h3>
         <div id="logout">
@@ -83,7 +83,7 @@ export default function SearchPage({ user }) {
           value={term}
           onChange={(e) => setTerm(e.target.value)}
           placeholder="Search images..."
-          className="flex-1 px-4 py-2 border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex-1 w-3/5 px-4 py-2 border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-blue-500"
         />
         <button
           type="submit"
