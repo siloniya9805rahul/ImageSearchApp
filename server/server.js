@@ -5,7 +5,7 @@ import cors from 'cors';
 import session from 'express-session';
 import passport from 'passport';
 import connectDb from './config/db.js';
-import passportConfig from './config/passport.js'; 
+import passportConfig from './config/passport.js';
 
 import authRoutes from './routes/auth.js';
 import searchRoutes from './routes/search.js';
@@ -31,6 +31,12 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'secret',
   resave: false,
   saveUninitialized: false,
+  cookie: {
+    secure: process.env.NODE_ENV === "production",
+    httpOnly: true,
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+    maxAge: 7 * 24 * 60 * 60 * 1000
+  }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
