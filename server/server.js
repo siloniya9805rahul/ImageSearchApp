@@ -76,25 +76,7 @@ app.use("/api", searchRoutes);
 app.use("/api", topRoutes);
 app.use("/api", historyRoutes);
 
-// ✅ Health check (optional, helps debug)
-app.get("/", (req, res) => {
-  res.send("✅ Server is running and healthy.");
-});
 
-// ✅ Start server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server listening on port ${PORT}`));    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-    maxAge: 7 * 24 * 60 * 60 * 1000
-  }
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-
-// ✅ Routes
-app.use('/api/auth', authRoutes);
-app.use('/api', searchRoutes);
-app.use('/api', topRoutes);
-app.use('/api', historyRoutes);
 
 // ✅ Start Server
 const PORT = process.env.PORT || 5000;
